@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hello World Kelompok</title>
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial, Helvetica, sans-serif;
+}
+
+body{
+height:100vh;
+display:flex;
+align-items:center;
+justify-content:center;
+background:linear-gradient(135deg,#4facfe,#00f2fe);
+}
+
+
+.container{
+background:white;
+padding:40px;
+border-radius:15px;
+width:80%;
+max-width:800px;
+text-align:center;
+box-shadow:0 10px 25px rgba(0,0,0,0.2);
+}
+
+#title{
+font-size:32px;
+margin-bottom:20px;
+border-right:3px solid black;
+white-space:nowrap;
+overflow:hidden;
+width:0;
+animation:typing 2s steps(12) forwards, blink .7s infinite;
+}
+
+@keyframes typing{
+from{width:0}
+to{width:190px}
+}
+
+@keyframes blink{
+50%{border-color:transparent}
+}
+
+button{
+padding:10px 25px;
+border:none;
+border-radius:8px;
+background:#4facfe;
+color:white;
+font-size:16px;
+cursor:pointer;
+margin-top:20px;
+}
+
+button:hover{
+background:#2f80ed;
+}
+
+.members{
+margin-top:30px;
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
+gap:20px;
+}
+
+.card{
+background:#f4f6f8;
+padding:15px;
+border-radius:10px;
+opacity:0;
+transform:translateY(20px);
+transition:0.5s;
+}
+
+.card.show{
+opacity:1;
+transform:translateY(0);
+}
+
+.card:hover{
+background:#4facfe;
+color:white;
+}
+
+footer{
+margin-top:30px;
+color:gray;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<h1 id="title">Hello World</h1>
+
+<button onclick="showMembers()">Lihat Anggota Kelompok</button>
+
+<div class="members">
+
+<div class="card">Ikhsan Gusrin Ramadhan<br>(24416255201144)</div>
+<div class="card">Rian Agustian<br>(24416255201145)</div>
+<div class="card">Refa Agustyah<br>(24416255201126)</div>
+<div class="card">Vina Amalia<br>(24416255201125)</div>
+<div class="card">Tiara Novita Sari<br>(24416255201146)</div>
+
+</div>
+
+<footer>
+Kelompok Informatika
+</footer>
+
+</div>
+
+<script>
+
+/* LOADING SCREEN */
+setTimeout(()=>{
+document.getElementById("loading").style.display="none";
+},2000);
+
+
+/* SHOW MEMBERS ONE BY ONE */
+
+function showMembers(){
+
+const cards = document.querySelectorAll(".card");
+
+cards.forEach((card,index)=>{
+setTimeout(()=>{
+card.classList.add("show");
+}, index * 400);
+});
+
+}
+
+</script>
+
+</body>
+</html>
